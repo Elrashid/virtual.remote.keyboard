@@ -1,0 +1,60 @@
+﻿@model remote.keyboard.Web.Controllers.Note
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+<div id="processSelectListHolder"></div>
+
+@section scripts {
+    <script>
+        $.get("processSelectLislPart", function (data) {
+            $("#processSelectListHolder").html(data);
+        });
+    </script>
+}
+
+<script>
+    var prossid;
+    function myFunction(selectObject) {
+        prossid = selectObject.value;
+    }
+</script>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                lines
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var line in Model.Text.Split(Environment.NewLine))
+        {
+            <tr>
+                <td>
+                    @line
+                </td>
+                <td>
+                    @*@Html.ActionLink("write", "write", new { /* id=item.PrimaryKey */ }) |*@
+                    <a onclick="x('@Html.Encode(line)')"> write</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function x(txt) {
+        $.post("write", { txt: txt, prossid: prossid });
+    }
+</script>
