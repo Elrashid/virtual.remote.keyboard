@@ -1,6 +1,6 @@
 using System;
 
-namespace virtual.remote.keyboard.Web.Models
+namespace remote.keyboard.Web.Models
 {
     public class ErrorViewModel
 {

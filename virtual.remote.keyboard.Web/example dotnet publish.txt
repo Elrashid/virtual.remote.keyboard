@@ -1,0 +1,14 @@
+dir
+where dotnet
+dotnet publish -c Release -r win7-x64
+dotnet publish -c Release -r win7-x86
+dotnet publish -c Release -r win8-x64
+dotnet publish -c Release -r win8-x86
+dotnet publish -c Release -r win8-arm
+dotnet publish -c Release -r win81-x64
+dotnet publish -c Release -r win81-x86
+dotnet publish -c Release -r win81-arm
+dotnet publish -c Release -r win10-x64
+dotnet publish -c Release -r win10-x86
+dotnet publish -c Release -r win10-arm
+dotnet publish -c Release -r win10-arm64
